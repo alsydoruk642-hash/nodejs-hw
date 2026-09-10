@@ -7,6 +7,8 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
+import notesRouter from './routes/notesRoutes.js';
+
 dotenv.config();
 
 const app = express();
@@ -15,7 +17,7 @@ app.use(express.json());
 app.use(logger);
 
 // Routers
-
+app.use(notesRouter);
 // Middleware
 
 app.use(notFoundHandler);
