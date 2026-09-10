@@ -32,4 +32,4 @@ const noteSchema = new Schema(
   { timestamps: true },
 );
 
-export const Note = model('Notes', noteSchema);
+export const Note = model('Note', noteSchema);
