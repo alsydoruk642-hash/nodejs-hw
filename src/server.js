@@ -2,6 +2,7 @@ import cors from 'cors';
 import express from 'express';
 import dotenv from 'dotenv';
 import { logger } from './middleware/logger.js';
+import { errors } from 'celebrate';
 
 import { connectMongoDB } from './db/connectMongoDB.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
@@ -19,13 +20,14 @@ app.use(logger);
 // Routers
 app.use(notesRouter);
 // Middleware
+app.use(errors());
 
 app.use(notFoundHandler);
 app.use(errorHandler);
 
 const startServer = async () => {
   await connectMongoDB();
-  const PORT = process.env.PORT;
+  const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
