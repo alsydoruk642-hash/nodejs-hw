@@ -23,7 +23,10 @@
   },
   "homepage": "https://github.com/alsydoruk642-hash/nodejs-hw#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcrypto": "^5.5.2",
     "celebrate": "^16.0.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",

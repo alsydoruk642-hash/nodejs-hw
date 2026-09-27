@@ -9,15 +9,19 @@ import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
 import notesRouter from './routes/notesRoutes.js';
+import authRouter from './routes/authRoutes.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 app.use(logger);
 
 // Routers
+app.use(authRouter);
 app.use(notesRouter);
 // Middleware
 app.use(errors());
