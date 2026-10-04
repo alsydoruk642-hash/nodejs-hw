@@ -8,7 +8,7 @@ import bcrypt from 'bcrypt';
 import { createSession, setSessionCookies } from '../services/auth.js';
 import { Session } from '../models/session.js';
 import jwt from 'jsonwebtoken';
-import { sendEMail } from '../utils/sendMail.js';
+import { sendEmail } from '../utils/sendMail.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -134,7 +134,7 @@ export const requestResetEmail = async (req, res) => {
   });
 
   try {
-    await sendEMail({
+    await sendEmail({
       from: process.env.SMTP_FROM,
       to: user.email,
       subject: 'Reset your password',
